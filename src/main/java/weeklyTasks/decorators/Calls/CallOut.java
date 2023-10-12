@@ -2,7 +2,6 @@ package weeklyTasks.decorators.Calls;
 
 import weeklyTasks.decorators.AutoCallable;
 
-@Bean
 public class CallOut implements Call{
     @AutoCallable(name = "Out")
     @Override

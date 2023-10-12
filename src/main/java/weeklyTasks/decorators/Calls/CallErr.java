@@ -2,8 +2,7 @@ package weeklyTasks.decorators.Calls;
 
 import weeklyTasks.decorators.AutoCallable;
 
-@Bean
-public class CallErr implements Call{
+public class CallErr implements Call {
     @AutoCallable(name = "Err")
     @Override
     public void call(String str) {

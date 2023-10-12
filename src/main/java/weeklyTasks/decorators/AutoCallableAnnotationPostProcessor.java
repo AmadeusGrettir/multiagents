@@ -2,12 +2,9 @@ package weeklyTasks.decorators;
 
 import weeklyTasks.decorators.Calls.Call;
 
-import weeklyTasks.decorators.Calls.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import org.reflections.Reflections;
+
 import java.lang.reflect.Method;
 import java.lang.annotation.Annotation;
 
@@ -19,14 +16,14 @@ public class AutoCallableAnnotationPostProcessor {
     public static void findAutoCallable() throws Exception{
 
         Reflections r = new Reflections(Call.class);
-        Set<Class<?>> typesAnnotatedWith = r.getTypesAnnotatedWith(Bean.class);
+        Set<Class<? extends Call>> typesImplementCall = r.getSubTypesOf(Call.class);
 
         File file = new File("C:\\Users\\Андрей\\IdeaProjects\\multiagents\\src\\main\\java\\weeklyTasks\\decorators\\config.txt");
         Scanner scanner = new Scanner(file);
 
-        for (Class<?> clazz : typesAnnotatedWith) {
+        for (Class<?> clazz : typesImplementCall) {
 
-            if (!Call.class.isAssignableFrom(clazz)) continue;
+            //if (!Call.class.isAssignableFrom(clazz)) continue;
 
             for (Method method : clazz.getDeclaredMethods()) {
 
