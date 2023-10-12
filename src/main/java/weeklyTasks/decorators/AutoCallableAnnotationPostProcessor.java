@@ -26,6 +26,8 @@ public class AutoCallableAnnotationPostProcessor {
 
         for (Class<?> clazz : typesAnnotatedWith) {
 
+            if (!Call.class.isAssignableFrom(clazz)) continue;
+
             for (Method method : clazz.getDeclaredMethods()) {
 
                 Annotation annotation = method.getAnnotation(AutoCallable.class);
